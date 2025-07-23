@@ -1,12 +1,14 @@
 import axios from 'axios';
 import { User, ChatRoom, ChatMessage } from '@/types/chat';
 
-const API_BASE_URL = 'http://localhost:8080/api';
+const API_BASE_URL = ('https://341f8c88d556.ngrok-free.app/api');
 
 const api = axios.create({
   baseURL: API_BASE_URL,
   headers: {
     'Content-Type': 'application/json',
+      'ngrok-skip-browser-warning': 'true',
+    'Access-Control-Allow-Origin': '*',
   },
 });
 
@@ -16,8 +18,8 @@ export const userApi = {
   getAllUsers: () => api.get<User[]>('/users'),
   searchUsers: (query: string) => api.get<User[]>(`/users/search?query=${query}`),
   getOnlineUsers: () => api.get<User[]>('/users/online'),
-  updateUserStatus: (id: number, status: string) => 
-    api.put(`/users/${id}/status?status=${status}`),
+updateUserStatus: (id: number, status: string) => 
+  api.put(`/users/${id}/status?status=${status}`),
 };
 
 export const chatRoomApi = {
