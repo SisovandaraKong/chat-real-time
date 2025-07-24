@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { User, ChatRoom, ChatMessage } from '@/types/chat';
 
-const API_BASE_URL = ('https://341f8c88d556.ngrok-free.app/api');
+const API_BASE_URL = ('https://d1e095246f5c.ngrok-free.app/api');
 
 const api = axios.create({
   baseURL: API_BASE_URL,

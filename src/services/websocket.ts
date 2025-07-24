@@ -7,7 +7,7 @@ class WebSocketService {
   private connected: boolean = false;
 
   connect(_onMessageReceived: (message: ChatMessage) => void, _onTyping: (typing: TypingIndicator) => void) {
-    const socket = new SockJS('https://341f8c88d556.ngrok-free.app/ws');
+    const socket = new SockJS('https://d1e095246f5c.ngrok-free.app/ws');
     this.stompClient = Stomp.over(socket);
 
     this.stompClient.connect({}, (frame: any) => {
